@@ -9,23 +9,10 @@ from rest_framework.views import APIView
 from book.serializers import BookSerializer
 
 # get, post, put and delete
+
 # Create your views here.
 
 class BookView(APIView):
-    # def get(self, request):
-    #     queryset = Book.objects.all()
-    #     return HttpResponse (queryset)
-    
-    # @csrf_expect
-    # def post(self, request):
-    #     title = request.objects.get('title')
-    #     author_id = request.objects.get('author_id')
-    #     price = request.objects.get('price')
-        
-    #     queryset = Book.objects.create(title = title, author_id= author_id, price= price )
-    #     # queryset = Book.objects.create(title = title, price= price )
-    #     return HttpResponse (queryset)
-
     def get(self, request, format=None):
         queryset = Book.objects.all()
         serializer = BookSerializer(queryset, many=True)
